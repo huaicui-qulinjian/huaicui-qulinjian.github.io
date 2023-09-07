@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mysql安装</title>
+    <script src="./js/copy.js"></script>
+    <style>
+        img {max-width: 500px;}
+        h1 {text-align: center;border-bottom: 1px solid #F1f1f1;font-size: 20px;}
+        ul {margin: 0;padding: 0;}
+        li {list-style: none;margin-bottom: 80px;}
+        .wrap {width: 80%;margin-left: auto;margin-right: auto;}
+        .step {font-weight: bold;font-size: 18px;}
+        .code {color: red;background: #f0f0f0;padding-left: 8px;padding-right: 8px;}
+    </style>
+</head>
+<body>
+    <h1>mysql安装</h1>
+    <ul class="wrap">
+        <li>
+            <p class="step">step1.安装mysql-server</p>
+            <p>执行如下命令：<span class="code">sudo apt-get install mysql-server</span>。并输入密码，出现询问框输入Y。如图：</p>
+            <img src="./img/53.jpg" alt="">
+            <p>等待一段时间后，出现下图这代表安装成功。</p>
+            <img src="./img/54.jpg" alt="">
+        </li>
+        <li>
+            <p class="step">step2.进入mysql</p>
+            <p>执行如下命令：<span class="code">sudo mysql -u root</span>。如图：</p>
+            <img src="img/55.jpg" alt="">
+            <p>出现Welcome字样则代表操作成功。</p>
+        </li>
+        <li>
+            <p class="step">step3.创建用户</p>
+            <p>执行如下命令：<span class="code">CREATE USER 'smartlux'@'%' IDENTIFIED WITH mysql_native_password BY 'App_Home2016';</span>。如图：</p>
+            <img src="img/63.jpg" alt="">
+            <p>执行如下命令：<span class="code">GRANT ALL PRIVILEGES ON *.* TO 'smartlux'@'%' WITH GRANT OPTION;</span>。如图：</p>
+            <img src="img/64.jpg" alt="">
+            <p>执行如下命令：<span class="code">FLUSH PRIVILEGES;</span>。如图：</p>
+            <img src="img/65.jpg" alt="">
+        </li>
+        <li>
+           <p class="step">step4.退出mysql</p>
+           <p>执行如下命令：<span class="code">exit</span>。如图：</p>
+           <img src="img/66.jpg" alt="">
+        </li>
+        <li>
+           <p class="step">step5.设置远程访问mysql</p>
+           <p>执行如下命令：<span class="code">sudo gedit /etc/mysql/mysql.conf.d/mysqld.cnf</span>并输入密码。如图：</p>
+           <img src="img/83.jpg" alt="">
+           <p>弹出的文件框如图所示：</p>
+           <img src="img/84.jpg" alt="">
+           <p>将 bind-address 修改值为 0.0.0.0。然后保存退出。如图所示：</p>
+           <img src="img/85.jpg" alt="">
+        </li>
+        <li>
+           <p class="step">step6.重启mysql</p>
+           <p>执行如下命令：<span class="code">sudo /etc/init.d/mysql restart</span>。如图：</p>
+           <img src="img/86.jpg" alt="">
+        </li>
+    </ul>
+</body>
+</html>

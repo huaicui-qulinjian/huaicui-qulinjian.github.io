@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>web服务安装及系统测试</title>
+    <script src="./js/copy.js"></script>
+    <style>
+        img {max-width: 500px;}
+        h1 {text-align: center;border-bottom: 1px solid #F1f1f1;font-size: 20px;}
+        ul {margin: 0;padding: 0;}
+        li {list-style: none;margin-bottom: 80px;}
+        .wrap {width: 80%;margin-left: auto;margin-right: auto;}
+        .step {font-weight: bold;font-size: 18px;}
+        .code {color: red;background: #f0f0f0;padding-left: 8px;padding-right: 8px;}
+    </style>
+</head>
+<body>
+    <h1>web服务安装及系统测试</h1>
+    <p style="text-align: center;font-size: 14px;color: #666;">
+        注：以下步骤均在本机上完成
+    </p>
+    <ul class="wrap">
+        <li>
+            <p class="step">step1.上载farm_service</p>
+            <p>在 <b>WinSCP软件</b> 中找到opt目录并进入。如图所示：</p>
+            <img src="./img/93.jpg" alt="">
+            <p>找到本机farm_service目录中的farm_service\dist\static\ip.js。如图：</p>
+            <img src="./img/115.jpg" alt="">
+            <p>打开该文件后将ip地址替换成ubuntu设置的ip,如图：</p>
+            <img src="./img/116.jpg" alt="">
+            <p>将本机farm_service目录上传到该目录。如图：</p>
+            <img src="./img/94.jpg" alt="">
+        </li>
+        <li>
+            <p class="step">step2.安装node模块</p>
+            <p>打开 <b>butty软件</b> 并连接到服务器。如图：</p>
+            <img src="./img/95.jpg" alt="">
+            <p>输入命令 <span class="code">cd ../../opt/farm_service</span>。如图：</p>
+            <img src="./img/96.jpg" alt="">
+            <p>输入命令 <span class="code">sudo npm install</span>，并输入密码。如图：</p>
+            <img src="./img/97.jpg" alt="">
+
+        </li>
+        <li>
+            <p class="step">step3.启动WEB服务</p>
+            <p>输入命令 <span class="code">sudo pm2 start /opt/farm_service/app_seedling.js --name SmartSeedling -i 0 --watch </span>。出现此界面，表示成功如图：</p>
+            <img src="./img/98.jpg" alt="">
+        </li>
+        <li>
+            <p class="step">step4.启动历史存储服务</p>
+            <p>输入命令 <span class="code">sudo pm2 start /opt/farm_service/appWork.js --name seedlingWork --watch</span>。出现此界面，表示成功如图：</p>
+            <img src="./img/99.jpg" alt="">
+        </li>
+        <li>
+            <p class="step">step5.测试系统</p>
+            <p>在本地浏览器地址栏中，输入ubuntu的ip地址:3601。比如我的ubuntu系统ip为192.168.153.130，就在我的浏览器地址栏中输入http://192.168.153.130:3601。如图所示代表成功。</p>
+            <img src="./img/100.jpg" alt="">
+        </li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>node安装</title>
+    <script src="./js/copy.js"></script>
+    <style>
+        img {max-width: 500px;}
+        h1 {text-align: center;border-bottom: 1px solid #F1f1f1;font-size: 20px;}
+        ul {margin: 0;padding: 0;}
+        li {list-style: none;margin-bottom: 80px;}
+        .wrap {width: 80%;margin-left: auto;margin-right: auto;}
+        .step {font-weight: bold;font-size: 18px;}
+        .code {color: red;background: #f0f0f0;padding-left: 8px;padding-right: 8px;}
+    </style>
+</head>
+<body>
+    <h1>node安装</h1>
+    <ul class="wrap">
+        <li>
+            <p class="step">step1. 安装curl</p>
+            <p>执行如下命令：<span class="code">sudo apt-get install curl</span>。并输入密码。如图：</p>
+            <img src="./img/32.jpg" alt="">
+            <p>在询问中输入Y。如图：</p>
+            <img src="img/33.jpg" alt="">
+            <p>如果出现下如图情况，说明操作成功。</p>
+            <img src="img/34.jpg" alt="">
+        </li>
+        <li>
+            <p class="step">step2.</p>
+            <p>执行如下命令：<span class="code">curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -</span>。如图：</p>
+            <img src="img/35.jpg" alt="">
+            <p>如果出现下如图情况，说明操作成功。</p>
+            <img src="img/36.jpg" alt="">
+        </li>
+        <li>
+            <p class="step">step3.安装nodejs</p>
+            <p>执行如下命令：<span class="code">sudo apt-get install -y nodejs</span>。并输入密码。如图：</p>
+            <img src="img/37.jpg" alt="">
+            <p>如果出现下如图情况，说明操作成功。</p>
+            <img src="img/38.jpg" alt="">
+        </li>
+        <li>
+            <p class="step">step4.安装npm</p>
+            <p>执行如下命令：<span class="code">sudo npm install -g npm</span>。如图：</p>
+            <img src="img/39.jpg" alt="">
+            <p>如果出现下如图情况，说明操作成功。</p>
+            <img src="img/40.jpg" alt="">
+        </li>
+        <li>
+            <p class="step">step5.安装pm2</p>
+            <p>执行如下命令：<span class="code">sudo npm install -g pm2</span>。如图：</p>
+            <img src="img/41.jpg" alt="">
+            <p>如果出现下如图情况，说明操作成功。</p>
+            <img src="img/42.jpg" alt="">
+        </li>
+    </ul>
+</body>
+</html>

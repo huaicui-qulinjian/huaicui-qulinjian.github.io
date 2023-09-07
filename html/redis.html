@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>redis安装</title>
+    <script src="./js/copy.js"></script>
+    <style>
+        img {max-width: 500px;}
+        h1 {text-align: center;border-bottom: 1px solid #F1f1f1;font-size: 20px;}
+        ul {margin: 0;padding: 0;}
+        li {list-style: none;margin-bottom: 80px;}
+        .wrap {width: 80%;margin-left: auto;margin-right: auto;}
+        .step {font-weight: bold;font-size: 18px;}
+        .code {color: red;background: #f0f0f0;padding-left: 8px;padding-right: 8px;}
+    </style>
+</head>
+<body>
+    <h1>redis安装</h1>
+    <ul class="wrap">
+        <li>
+            <p class="step">step1. 安装redis-server</p>
+            <p>执行如下命令：<span class="code">sudo apt-get install redis-server</span>。并在询问中输入Y。如图：</p>
+            <img src="./img/20.jpg" alt="">
+            <p>如果出现下如图情况，说明操作成功。</p>
+            <img src="img/21.jpg" alt="">
+        </li>
+        <li>
+            <p class="step">step2. 打开配置参数</p>
+            <p>执行如下命令：<span class="code">sudo gedit  /etc/redis/redis.conf</span>。如图：</p>
+            <img src="img/22.jpg" alt="">
+            <p>此时弹出一个新窗口。如图：</p>
+            <img src="img/23.jpg" alt="">
+            <p>如果没有弹出窗口，而是出现如图所示情况</p>
+            <img src="img/62.jpg" alt="">
+            <p>关闭命令窗口，然后重新打开命令窗口，再次输入<span class="code">sudo gedit  /etc/redis/redis.conf</span></p>
+        </li>
+        <li>
+            <p class="step">step3. 修改配置参数</p>
+            <p>将窗口中的 <span class="code">bind 127.0.0.1 ::1</span>修改为
+            <p><span class="code">bind 0.0.0.0<br />requirepass Smartlux_Redis</span></p></p>
+            <img src="img/30.jpg" alt="">
+            <p>保存文件并退出。</p>
+            <img src="img/31.jpg" alt="">
+        </li>
+    </ul>
+</body>
+</html>

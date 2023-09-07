@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>telnet安装</title>
+    <script src="./js/copy.js"></script>
+    <style>
+        img {max-width: 500px;}
+        h1 {text-align: center;border-bottom: 1px solid #F1f1f1;font-size: 20px;}
+        ul {margin: 0;padding: 0;}
+        li {list-style: none;margin-bottom: 80px;}
+        .wrap {width: 80%;margin-left: auto;margin-right: auto;}
+        .step {font-weight: bold;font-size: 18px;}
+        .code {color: red;background: #f0f0f0;padding-left: 8px;padding-right: 8px;}
+    </style>
+</head>
+<body>
+    <h1>telnet安装</h1>
+    <ul class="wrap">
+        <li>
+            <p class="step">step1. 更新apt工具</p>
+            <p>执行如下命令：<span class="code">sudo apt-get update</span>按回车 (以后输入完命令后均按回车，不再重复)，然后输入密码（密码输入时字符串均为不可见状态且不占位，<b>具体表现为好像没有内容输入，实际上已经是输入状态</b>），输入完成后点击回车。</p>
+            <img src="./img/01.jpg" alt="">
+            <p>如果出现下如图情况，说明操作成功。</p>
+            <img src="img/02.jpg" alt="">
+        </li>
+        <li>
+            <p class="step">step2.安装net-tools</p>
+            <p>执行如下命令：<span class="code">sudo apt-get install net-tools</span></p>
+            <img src="img/03.jpg" alt="">
+            <p>如果出现下如图情况，说明操作成功。</p>
+            <img src="img/04.jpg" alt="">
+        </li>
+        <li>
+            <p class="step">step3.安装openbsd-inetd</p>
+            <p>执行如下命令：<span class="code">sudo apt-get install openbsd-inetd</span></p>
+            <img src="img/05.jpg" alt="">
+            <p>在询问是否确认时输入Y,如图。</p>
+            <img src="img/06.jpg" alt="">
+            <p>如果出现下如图情况，说明操作成功。</p>
+            <img src="img/07.jpg" alt="">
+            <p>如果出现其他情况，如图</p>
+            <img src="img/24.jpg" alt="">
+            <p>再次执行<span class="code">sudo apt-get install openbsd-inetd</span>并在询问中输入Y。如图：</p>
+            <img src="img/25.jpg" alt="">
+        </li>
+        <li>
+            <p class="step">step4.安装telnetd</p>
+            <p>执行如下命令：<span class="code">sudo apt-get install telnetd</span></p>
+            <img src="img/08.jpg" alt="">
+            <p>如果出现下如图情况，说明操作成功。</p>
+            <img src="img/09.jpg" alt="">
+            <p>然后执行如下命令：<span class="code">sudo gedit /etc/inetd.conf</span></p>
+            <img src="img/11.jpg" alt="">
+            <p>此时会打开一个新的窗口，如果窗口中出现红色框中的内容，表示成功，关闭该窗口即可。</p>
+            <img src="img/12.jpg" alt="">
+        </li>
+        <li>
+            <p class="step">step5.重启openbsd-inetd</p>
+            <p>执行如下命令：<span class="code">/etc/init.d/openbsd-inetd restart</span></p>
+            <img src="img/13.jpg" alt="">
+            <p>在弹出的对话框中输入密码。</p>
+            <img src="img/14.jpg" alt="">
+            <p>如果出现下如图情况，说明操作成功。</p>
+            <img src="img/15.jpg" alt="">
+        </li>
+        <li>
+            <p class="step">step6.查看telnet运行状态</p>
+            <p>执行如下命令：<span class="code">sudo netstat -a | grep telnet</span></p>
+            <img src="img/16.jpg" alt="">
+            <p>如果输出tcp　　0　　0 *:telnet　　*:*　　LISTEN，说明操作成功。如图</p>
+            <img src="img/17.jpg" alt="">
+        </li>
+        <li>
+            <p class="step">step7.telnet登陆测试</p>
+            <p>执行如下命令：<span class="code">telnet 127.0.0.1</span>。然后输入用户名密码。(用户名：<b>smartgrow</b>，密码：<b>Grow_@0!6</b> )如图：</p>
+            <img src="img/18.jpg" alt="">
+            <p>如果出现下如图情况，说明操作成功。</p>
+            <img src="img/19.jpg" alt="">
+        </li>
+    </ul>
+</body>
+</html>

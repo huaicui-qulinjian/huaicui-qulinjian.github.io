@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>本机连接Ubuntu</title>
+    <script src="./js/copy.js"></script>
+    <style>
+        img {max-width: 500px;}
+        h1 {text-align: center;border-bottom: 1px solid #F1f1f1;font-size: 20px;}
+        ul {margin: 0;padding: 0;}
+        li {list-style: none;margin-bottom: 80px;}
+        .wrap {width: 80%;margin-left: auto;margin-right: auto;}
+        .step {font-weight: bold;font-size: 18px;}
+        .code {color: red;background: #f0f0f0;padding-left: 8px;padding-right: 8px;}
+    </style>
+</head>
+<body>
+    <h1>本机连接Ubuntu</h1>
+    <ul class="wrap">
+        <li>
+            <p class="step">step0. 设置服务器ip地址</p>
+            <p>在系统设置中点击网络，选择网络选项，并点击右侧设置图标如图：</p>
+            <img src="./img/110.jpg" alt="">
+            <p>找到IPv4,选择手动,如图：</p>
+            <img src="./img/109.jpg" alt="">
+            <p>地址填写有线ip</p>
+            <p>子网掩码填写<span class="code">255.255.255.0</span></p>
+            <p>网关填写<span class="code">192.168.1.1</span></p>
+            <p>点击wifi选项， 找到连接的无线网，点击右侧设置图标，如图：</p>
+            <img src="./img/111.jpg" alt="">
+            <p>找到IPv4,选择手动,如图：</p>
+            <img src="./img/112.jpg" alt="">
+            <p>地址填写无线ip</p>
+            <p>子网掩码填写<span class="code">255.255.255.0</span></p>
+            <p>网关填写<span class="code">10.0.0.1</span></p>
+            <p>DNS填写<span class="code">10.0.0.1</span></p>
+            <p>点击应用后，关闭wifi，再重新打开wifi，检测是否能够正确联网。如图：</p>
+            <img src="./img/113.jpg" alt="">
+        </li>
+        <li>
+            <p class="step">step1. 获取服务器ip地址</p>
+            <p>在Ubuntu命令行中，执行下面命令：<span class="code">ifconfig</span>。如图：</p>
+            <img src="./img/44.jpg" alt="">
+            <p>红色框中的ip即服务器的ip。地址。如图：</p>
+            <img src="./img/45.jpg" alt="">
+            <p>上图中服务器的ip地址为：192.168.153.129</p>
+        </li>
+        <li>
+            <p class="step">step2.修改root用户密码</p>
+            <p>执行下面命令：<span class="code">sudo passwd root</span>。如图：</p>
+            <img src="./img/67.jpg" alt="">
+            <p>在弹出的询问框中输入<span class="code"> Grow_@0!6</span>，回车，然后继续输入<span class="code"> Grow_@0!6</span>。如图：</p>
+            <img src="./img/68.jpg" alt="">
+        </li>
+        <li>
+            <p class="step">step3.修改etc/ssh/sshd_config</p>
+            <p>执行下面命令：<span class="code">sudo gedit /etc/ssh/sshd_config </span>。会弹出一个文本编辑器。如图：</p>
+            <img src="./img/69.jpg" alt="">
+            <p>在文本编辑器的最下方插入如下内容：</p>
+            <p><span class="code">PermitRootLogin yes </span><br /><span class="code">StrictModes yes   </span></p>
+            <p>如图：</p>
+            <img src="./img/70.jpg" alt="">
+            <p>然后保存退出。</p>
+        </li>
+        <li>
+            <p class="step">step4.重启ssh服务</p>
+            <p>执行下面命令：<span class="code">service sshd restart </span>。如图：</p>
+            <img src="./img/71.jpg" alt="">
+            <p>在弹出的对话框中输入密码。如图：</p>
+            <img src="./img/72.jpg" alt="">
+        </li>
+        <li>
+            <p class="step">step5.WinSCP连接服务器。（从这一步一直到结束均在本地计算机中操作） </p>
+            <p>打开本地计算机的WinSCP软件。WinSCP界面如图所示：</p>
+            <img src="img/50.jpg" alt="">
+            <p>填写主机名、用户名、密码登录。</p>
+            <img src="img/51.png" alt="">
+            <p>选择“是”</p>
+            <img src="img/52.jpg" alt="">
+        </li>
+        <li>
+            <p class="step">step6.新建目录。 </p>
+            <p>新建NMM_I目录。并进入该目录。如图：</p>
+            <img src="img/75.jpg" alt="">
+            <img src="img/57.jpg" alt="">
+            <img src="img/58.jpg" alt="">
+        </li>
+        <li>
+            <p class="step">step7.拷贝内容</p>
+            <p>将install包中NMM_I的所有内容(不含NMM_I文件夹)拖拽到该目录中。如图：</p>
+            <img src="img/59.jpg" alt="">
+        </li>
+        <li>
+            <p class="step">step8.putty连接服务器。 </p>
+            <p>打开本地计算机的putty软件。putty界面如图所示：</p>
+            <img src="./img/46.jpg" alt="">
+            <p>这里填写服务器ip地址，其他选项均为默认，然后点击open。如图所示：</p>
+            <img src="./img/47.jpg" alt="">
+            <img src="img/48.jpg" alt="">
+            <p>输入用户名和密码登录。出现Welcome字样则代表连接成功。如图：</p>
+            <img src="img/49.jpg" alt="">
+        </li>
+        <li>
+            <p class="step">step9.接入服务</p>
+            <p>输入<span class="code">ls</span>命令可以查看当前文件夹中包含了刚才添加的NMM_I文件夹。如图：</p>
+            <img src="img/76.jpg" alt="">
+            <p>输入<span class="code">cd NMM_I</span>进入该文件夹。然后输入<span class="code">ls </span>查看到该文件夹下有NMMInstall.sh文件。如图：</p>
+            <img src="img/78.jpg" alt="">
+            <p>执行命令<span class="code">sudo bash NMMInstall.sh</span>，并输入密码。如图：</p>
+            <img src="img/79.jpg" alt="">
+            <p>如果出现下图情况表示操作成功。</p>
+            <img src="img/80.jpg" alt="">
+        </li>
+        <li> 
+            <p class="step">step10.重启ubuntu</p>
+            <p>ubuntu命令窗口中输入<span class="code">sudo reboot</span>，并输入密码。如图：</p>
+            <img src="img/81.jpg" alt="">
+            <p>然后拍等待系统重启。</p>
+        </li>
+    </ul>
+</body>
+</html>
